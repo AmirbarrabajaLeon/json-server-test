@@ -18,19 +18,19 @@ jobs:
         with:
           node-version: "22"
 
-      # (Opcional) instala deps para validar package-lock, pero no compila nada
+      # Instala dependencias en el runner
       - name: Install deps
         run: npm ci --omit=dev
 
-      # Empaquetamos solo lo necesario; Oryx en App Service hará npm install allí
+      # Empaquetamos código + node_modules para que Azure no dependa de Oryx
       - name: Prepare artifacts
         run: |
           mkdir build
-          cp -r package.json package-lock.json server.js db.json build/
+          cp -r package.json package-lock.json server.js db.json node_modules build/
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: "mockapi"                               # <- tu Web App
+          app-name: "mockapi"
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: build
