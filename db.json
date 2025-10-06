@@ -2,23 +2,23 @@
   "categories": [
     {
       "id": 1,
-      "name": "Java"
+      "name": ".net"
     },
     {
       "id": 2,
-      "name": "Spring Boot"
+      "name": "Youtube"
     },
     {
       "id": 3,
-      "name": "TypeScript"
+      "name": "Yolo"
     },
     {
       "id": 4,
-      "name": "Angular"
+      "name": "C# Sharp"
     },
     {
       "id": 5,
-      "name": "RESTful"
+      "name": "FastAPI"
     }
   ],
   "courses": [
